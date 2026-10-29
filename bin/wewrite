@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Project-only CLI entry point. No shell activation or global installation needed.
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd -P)"
+if [ ! -x "$ROOT/.venv/bin/wewrite" ]; then
+  echo "请先运行：bash \"$ROOT/install-local.sh\"" >&2
+  exit 1
+fi
+
+export WEWRITE_HOME="$ROOT/.wewrite"
+export PATH="$ROOT/bin:$ROOT/.venv/bin:$PATH"
+exec "$ROOT/.venv/bin/wewrite" "$@"

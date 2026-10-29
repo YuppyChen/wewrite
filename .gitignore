@@ -35,6 +35,13 @@ build/
 .venv
 venv/
 
+# Project-only WeWrite state and dependency caches
+/.wewrite/
+/.cache/
+.env
+.env.*
+!.env.example
+
 # Local web tool dev: skill→backend venv symlink target + runtime image artifacts
 .artifacts/
 
